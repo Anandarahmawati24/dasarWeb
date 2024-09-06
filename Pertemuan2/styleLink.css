@@ -4,6 +4,9 @@
 .link:hover{
     color: red;
 }
+.link:visited {
+    color: greenyellow;
+}
 .link:link{
     color: blue;
 }
