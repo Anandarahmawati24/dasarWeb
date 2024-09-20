@@ -49,4 +49,27 @@ foreach ($nilaiSiswa as $nilai) {
     echo "<br>";
     echo "Nilai: $nilai (lulus) <br>";
 }
+
+$nilai=[85,92,78,64,90,75,88,79,70,96];
+
+$n = count($nilai);
+for ($i = 0; $i < $n - 1; $i++) {
+    for ($j = 0; $j < $n - $i - 1; $j++) {
+        if ($nilai[$j] > $nilai[$j + 1]) {
+            // Menukar posisi jika nilai saat ini lebih besar dari nilai berikutnya
+            $temp = $nilai[$j];
+            $nilai[$j] = $nilai[$j + 1];
+            $nilai[$j + 1] = $temp;
+        }
+    }
+}
+
+$total_nilai = 0;
+for ($i = 2; $i <= 7; $i++) {
+    $total_nilai += $nilai[$i];
+}
+$rata_rata = $total_nilai / 6;
+echo"<br>";
+echo "Total Nilai: $total_nilai<br>";
+echo "Rata-Rata: $rata_rata<br>";
 ?>
