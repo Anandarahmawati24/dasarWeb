@@ -40,4 +40,17 @@ echo"Hasil And: {$hasilAnd} <br>";
 echo"Hasil Or: {$hasilOr} <br>";
 echo"Hasil Not A: {$hasilNotA} <br>";
 echo"Hasil Not B: {$hasilNotB} <br>";
+
+$hasilPenugasanPenjumlahan= $a += $b;
+$hasilPenugasanPengurangan =$a -=$b;
+$hasilpenugasanPerkalian= $a *= $b;
+$hasilPenugasanPembagian=$a /= $b;
+$hasilPenugasanSisaBagi=$a %= $b;
+
+echo"<br><br>";
+echo "Hasil dari Penugasan Penjumlahan (+=) : {$hasilPenugasanPenjumlahan} <br>";
+echo "Hasil dari Penugasan Pengurangan (-=) : {$hasilPenugasanPengurangan} <br>";
+echo "Hasil dari Penugasan Perkalian (*=) : {$hasilpenugasanPerkalian} <br>";
+echo "Hasil dari Penugasan Pembagian (/=) : {$hasilPenugasanPembagian} <br>";
+echo "Hasil dari Penugasan Sisa Bagi (%=) : {$hasilPenugasanSisaBagi} <br>";
 ?>
