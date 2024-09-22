@@ -85,5 +85,10 @@ if ($harga_awal > 100000) {
 
 echo "Harga awal: Rp $harga_awal<br>";
 echo "Potongan harga: Rp $potongan<br>";
-echo "Harga setelah diskon: Rp $harga_setelah_diskon<br>";
+echo "Harga setelah diskon: Rp $harga_setelah_diskon<br><br>";
+
+$poin = 500;
+echo "Total skor pemain adalah: $poin<br>";
+$hadiah = ($poin > 500) ? "YA" : "TIDAK";
+echo "Apakah pemain mendapatkan hadiah tambahan? $hadiah<br>";
 ?>
