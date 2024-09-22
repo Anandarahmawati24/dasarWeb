@@ -71,5 +71,19 @@ for ($i = 2; $i <= 7; $i++) {
 $rata_rata = $total_nilai / 6;
 echo"<br>";
 echo "Total Nilai: $total_nilai<br>";
-echo "Rata-Rata: $rata_rata<br>";
+echo "Rata-Rata: $rata_rata<br><br>";
+
+$harga_awal = 120000;
+
+if ($harga_awal > 100000) {
+    $diskon = 20 / 100; 
+    $potongan = $harga_awal * $diskon; 
+    $harga_setelah_diskon = $harga_awal - $potongan; 
+} else {
+    $harga_setelah_diskon = $harga_awal; 
+}
+
+echo "Harga awal: Rp $harga_awal<br>";
+echo "Potongan harga: Rp $potongan<br>";
+echo "Harga setelah diskon: Rp $harga_setelah_diskon<br>";
 ?>
