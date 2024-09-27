@@ -17,7 +17,7 @@
             grid-template-columns: 100px auto; 
             gap: 10px;
             align-items: center;
-            margin-left: 400px;
+            margin-left: 300px;
         }
 
         .checkbox-group {
@@ -61,6 +61,24 @@
     </style>
     <script>
         function formValidasi() {
+            var nama = document.getElementById('nama').value;
+            if (nama === "") {
+                alert("Nama harus diisi.");
+                return false;
+            }
+
+            var alamat = document.getElementById('alamat').value;
+            if (alamat === "") {
+                alert("Alamat harus diisi.");
+                return false;
+            }
+
+            var tanggalLahir = document.getElementById('tanggal_lahir').value;
+            if (tanggalLahir === "") {
+                alert("Tanggal lahir harus diisi.");
+                return false;
+            }
+
             var lakiLaki = document.getElementById('laki-laki');
             var wanita = document.getElementById('wanita');
             if (!lakiLaki.checked && !wanita.checked) {
