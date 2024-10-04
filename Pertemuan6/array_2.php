@@ -3,7 +3,22 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title></title>
+        <title>Membuat table</title>
+        <style>
+        table{
+        width: 70%;
+        border-collapse: collapse;
+        text-align: center;
+        margin: auto;
+            }
+        th{
+        font-style: oblique;
+        color: blue;
+        }
+        tr{
+            font-style: normal;
+        }
+</style>
     </head>
     <body>
         <?php
@@ -12,9 +27,9 @@
             'domisili' => 'Malang',
             'jenis_kelamin' => 'Perempuan' ];
         
-        echo "Nama : {$dosen ['nama']} <br>";
-        echo "Domisili : {$dosen ['domisili']} <br>";
-        echo "Jenis Kelamin : {$dosen ['jenis_kelamin']} <br>";
-        ?>
+        echo '<table border="1">';
+        echo '<tr><th>Nama</th><th>Domisili</th><th>Jenis Kelamin</th></tr>';
+        echo "<tr><td>Elok Nur Hamdana</td><td>Malang</td><td>Perempuan</td></tr>";
+?>
     </body>
 </html>
