@@ -37,4 +37,11 @@ if (preg_match($pattern, $text, $matches)) {
     echo "Tidak ada yang cocok!<br>";
 }
 
+$pattern = '/go{2,3}d/'; // cocokkan "gd", "god", dan "good"
+$text = 'god is good.';
+if (preg_match($pattern, $text, $matches)) {
+    echo "Cocokan: " . $matches[0]."<br>";
+} else {
+    echo "Tidak ada yang cocok!<br>";
+}
 ?>
