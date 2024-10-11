@@ -24,8 +24,17 @@ echo $new_text; // output : "I like banana pie."
 $pattern = '/go*d/'; // cocokkan "god", "good", "gooood",dll
 $text = 'god is good.';
 if (preg_match($pattern,$text, $matches)) {
-    echo "Cocokan: ".$matches[0];
+    echo "Cocokan: ".$matches[0] . "<br>";
 } else {
-    echo "Tidak ada yang cocok!";
+    echo "Tidak ada yang cocok!<br>";
 }
+
+$pattern = '/go?d/'; // cocokkan "gd", "god", dan "good"
+$text = 'god is good.';
+if (preg_match($pattern, $text, $matches)) {
+    echo "Cocokan: " . $matches[0]."<br>";
+} else {
+    echo "Tidak ada yang cocok!<br>";
+}
+
 ?>
