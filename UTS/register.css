@@ -1,7 +1,6 @@
-/* register.css */
 body {
     font-family:'Times New Roman', Times, serif;
-    background-image: url("gambar/register.png"); /* Pastikan gambar background ini sesuai */
+    background-image: url("gambar/register.png"); 
     background-size: 1280px 720px;
     background-position: center;
     background-repeat: no-repeat;
@@ -14,14 +13,13 @@ body {
 }
 .container {
     width: 110%;
-    max-width: 400px; /* Mengurangi ukuran maksimal kotak */
-    padding: 5px; /* Mengurangi padding */
+    max-width: 400px; 
+    padding: 5px; 
     background: rgba(255, 255, 255, 0.8);
     border-radius: 8px;
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
     margin: 20px auto;
-    justify-content: center; /* Memberikan jarak di atas dan bawah */
-}
+    justify-content: center; 
 
 .register-box {
     text-align: center;
@@ -29,24 +27,24 @@ body {
 }
 
 h1.login-title {
-    font-size: 16px; /* Mengurangi ukuran font judul */
+    font-size: 16px; 
     font-weight: bold;
     color: #333;
-    margin-top: 10px; /* Ruang atas untuk judul */
+    margin-top: 10px; /
 }
 
 h3.auth-title {
-    font-size: 16px; /* Mengurangi ukuran font */
+    font-size: 16px; 
     color: #218838;
 }
 
 .form-group-register {
-    margin-bottom: 8px; /* Mengurangi margin bawah */
+    margin-bottom: 8px; 
     text-align: center;
 }
 
 .form-group-register label {
-    font-size: 10px; /* Mengurangi ukuran font */
+    font-size: 10px; 
     font-weight: bold;
     color: #333;
     text-align: left;

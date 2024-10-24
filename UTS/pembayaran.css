@@ -152,7 +152,7 @@ button, input[type="submit"] {
     background-color: #7aa16c;
     color: white;
     border: none;
-    padding: 12px 18px; /* Menyesuaikan ukuran tombol */
+    padding: 12px 18px; 
     border-radius: 4px;
     cursor: pointer;
     transition: background 0.3s;
@@ -191,8 +191,8 @@ tr:hover {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: relative;
-    z-index: 10; /* Agar tetap di atas elemen lain */
-    width: 100%; /* Lebar form menyesuaikan dengan kontainer */
+    z-index: 10; 
+    width: 100%; 
     top: 0;
     margin-bottom: 20px;
 }

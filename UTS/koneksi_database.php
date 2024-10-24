@@ -17,7 +17,7 @@ if (!function_exists('sqlsrv_query')) {
     }
 }
 
-// Fungsi lainnya 
+// Fungsi tambah anggota
 function tambahAnggota($data) {
     global $conn;
     $nama = $data['nama'];
@@ -31,12 +31,9 @@ function tambahAnggota($data) {
 
 function editAnggota($data) {
     global $conn;
-    
-    // Periksa jika kunci ada
     if (!isset($data['id_anggota'])) {
         throw new InvalidArgumentException("ID Anggota tidak ditemukan.");
     }
-
     $id_anggota = $data['id_anggota'];
     $nama = $data['nama'];
     $alamat = $data['alamat'];
@@ -49,8 +46,6 @@ function editAnggota($data) {
 
 function hapusAnggota($id) {
     global $conn;
-
-    // Pastikan ID tidak kosong
     if (empty($id)) {
         throw new InvalidArgumentException("ID tidak boleh kosong.");
     }
@@ -62,25 +57,21 @@ function hapusAnggota($id) {
 
     if ($count > 0) {
         echo "<script>alert('Tidak bisa menghapus anggota yang memiliki pembayaran terkait!');</script>";
-        return false; // Gagal menghapus
+        return false; 
     }
 
-    // Hapus anggota jika tidak ada pembayaran terkait
     $stmt = $conn->prepare("DELETE FROM anggota WHERE id_anggota = ?");
     return $stmt->execute([$id]);
 }
 
-
 function registrasiAdmin($data){
     global $conn;
-    // Mengambil data dari form dan menghindari XSS
     $username = strtolower(trim($data["username"]));
     $password = $data["password"];
-    $nama_adm = htmlspecialchars($data["nama"]); // Mengambil nama admin
+    $nama_adm = htmlspecialchars($data["nama"]); 
     $email = htmlspecialchars($data["email"]);
-    $id_rt = $data["id_rt"]; // Ambil id_rt langsung dari form
+    $id_rt = $data["id_rt"]; 
 
-    // Cek apakah username sudah terdaftar
     $query = "SELECT username FROM admin_rt WHERE username = ?";
     $stmt = $conn->prepare($query);
     $stmt->execute([$username]);
@@ -89,12 +80,10 @@ function registrasiAdmin($data){
         echo "<script>alert('Username sudah terdaftar!');</script>";
         return false;
     }
-
-    // Menyimpan data admin ke database
+]
     $query = "INSERT INTO admin_rt (username, password, nama_adm, email, id_rt) VALUES (?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($query);
-    
-    // Gunakan plain password seperti yang diinginkan
+
     if ($stmt->execute([$username, $password, $nama_adm, $email, $id_rt])) {
         return $stmt->rowCount();
     } else {
@@ -103,6 +92,7 @@ function registrasiAdmin($data){
         return false;
     }
 }
+
 function getAllPembayaran() {
     global $conn;
 
@@ -110,7 +100,7 @@ function getAllPembayaran() {
         SELECT p.id_pembayaran, p.bulan, p.tahun, p.tanggal_bayar, p.jumlah_bayar, a.nama, r.nama_rt 
         FROM pembayaran p 
         JOIN anggota a ON p.id_anggota = a.id_anggota
-        JOIN rt r ON a.id_rt = r.id_rt"; // Menyertakan tabel RT
+        JOIN rt r ON a.id_rt = r.id_rt"; 
     $stmt = $conn->prepare($query);
     $stmt->execute();
 
@@ -119,7 +109,7 @@ function getAllPembayaran() {
 function getAllAnggota() {
     global $conn;
 
-    $query = "SELECT id_anggota, nama, alamat, email, id_rt FROM anggota"; // Pastikan id_anggota juga diambil
+    $query = "SELECT id_anggota, nama, alamat, email, id_rt FROM anggota"; 
     $stmt = $conn->prepare($query);
     $stmt->execute();
 
@@ -136,10 +126,7 @@ function tambahPembayaran($data) {
     $tanggal_bayar = $data['tanggal_bayar'];
     $jumlah_bayar = $data['jumlah_bayar'];
 
-    // Query SQL untuk menambah data pembayaran
     $stmt = $conn->prepare("INSERT INTO pembayaran (id_anggota, bulan, tahun, tanggal_bayar, jumlah_bayar) VALUES (?, ?, ?, ?, ?)");
-
-    // Eksekusi query
     if ($stmt->execute([$id_anggota, $bulan, $tahun, $tanggal_bayar, $jumlah_bayar])) {
         echo "<script>alert('Pembayaran berhasil ditambahkan!');</script>";
     } else {
@@ -157,11 +144,8 @@ function editbayar($data) {
     $tahun = $data['tahun'];
     $tanggal_bayar = $data['tanggal_bayar'];
     $jumlah_bayar = $data['jumlah_bayar'];
-
-    // Query SQL untuk update data pembayaran
     $stmt = $conn->prepare("UPDATE pembayaran SET id_anggota = ?, bulan = ?, tahun = ?, tanggal_bayar = ?, jumlah_bayar = ? WHERE id_pembayaran = ?");
 
-    // Eksekusi query
     if ($stmt->execute([$id_anggota, $bulan, $tahun, $tanggal_bayar, $jumlah_bayar, $id_pembayaran])) {
         echo "<script>alert('Pembayaran berhasil diupdate!');</script>";
     } else {
@@ -171,16 +155,12 @@ function editbayar($data) {
 
 function hapusPembayaran($id_pembayaran) {
     global $conn;
-
-    // Pastikan ID tidak kosong
     if (empty($id_pembayaran)) {
         throw new InvalidArgumentException("ID Pembayaran tidak boleh kosong.");
     }
-
-    // Query untuk menghapus pembayaran berdasarkan ID
     $stmt = $conn->prepare("DELETE FROM pembayaran WHERE id_pembayaran = ?");
     $stmt->execute([$id_pembayaran]);
 
-    return $stmt->rowCount(); // Mengembalikan jumlah baris yang dihapus
+    return $stmt->rowCount(); /
 }
 ?>

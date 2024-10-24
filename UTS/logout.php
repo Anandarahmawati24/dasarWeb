@@ -1,14 +1,9 @@
 <?php
-session_start(); // Memulai sesi
-
-// Menghancurkan semua data sesi
+session_start(); 
 session_destroy();
-
-// Mengarahkan pengguna ke halaman login
 header("Location: login.php");
-exit; // Pastikan tidak ada kode lain yang dieksekusi setelah pengalihan
+exit; 
 ?>
-
 <!DOCTYPE html>
 <html>
 <form action="logout.php" method="POST" style="display:inline;">

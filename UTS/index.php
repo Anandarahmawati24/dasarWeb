@@ -49,14 +49,10 @@ if (isset($_POST["logout"])) {
         Website ini diharapkan dapat membantu pencatatan kas bank sampah menjadi lebih terorganisir dan bisa diakses dari mana saja.
         Website ini dapat mengelola anggota, dan pembayaran kas anda setiap bulannya.</p>
         </main>
-
-
         <footer>
             <p>&copy; 2024 Kas Bank Sampah.</p>
         </footer>
     </div>
-
-    <!-- Script untuk Toggle Sidebar -->
     <script>
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');

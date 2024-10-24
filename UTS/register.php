@@ -7,8 +7,6 @@ if (isset($_SESSION["login"])) {
 }
 
 include 'koneksi_database.php'; 
-
-// Ambil data RT untuk dropdown
 $query = "SELECT id_rt, nama_rt FROM Rt";
 $stmt = $conn->prepare($query);
 $stmt->execute();
@@ -25,7 +23,6 @@ if (isset($_POST["register"])) {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="id">
 <head>

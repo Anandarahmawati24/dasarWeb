@@ -6,8 +6,7 @@ if (!isset($_SESSION["login"])) {
     header("Location: login.php"); // Arahkan ke halaman login jika belum login
     exit;
 }
-include 'koneksi_database.php'; // Menginclude file yang berisi koneksi database
-// Proses menambah pembayaran
+include 'koneksi_database.php'; 
 if (isset($_POST['tambah'])) {
     $data = [
         'id_anggota' => $_POST['id_anggota'],
@@ -16,10 +15,9 @@ if (isset($_POST['tambah'])) {
         'tanggal_bayar' => $_POST['tanggal_bayar'],
         'jumlah_bayar' => $_POST['jumlah_bayar']
     ];
-    tambahPembayaran($data); // Panggil fungsi tambah
+    tambahPembayaran($data); 
 }
 
-// Proses edit pembayaran
 if (isset($_POST['edit'])) {
     $data = [
         'id_pembayaran' => $_POST['id_pembayaran'],
@@ -29,20 +27,18 @@ if (isset($_POST['edit'])) {
         'tanggal_bayar' => $_POST['tanggal_bayar'],
         'jumlah_bayar' => $_POST['jumlah_bayar']
     ];
-    editbayar($data); // Panggil fungsi edit
+    editbayar($data); 
 }
 
-// Proses menghapus pembayaran
 if (isset($_POST['hapus'])) {
-    $id_pembayaran = $_POST['id_pembayaran'] ?? null; // Ambil ID pembayaran dari POST
+    $id_pembayaran = $_POST['id_pembayaran'] ?? null; 
     if ($id_pembayaran) {
-        hapusPembayaran($id_pembayaran); // Panggil fungsi hapus
+        hapusPembayaran($id_pembayaran); 
     } else {
         throw new InvalidArgumentException("ID tidak boleh kosong.");
     }
 }
 
-// Mengambil semua data pembayaran untuk ditampilkan
 $pembayaranList = getAllPembayaran();
 ?>
 <!DOCTYPE html>
@@ -68,11 +64,7 @@ $pembayaranList = getAllPembayaran();
     </div>
     <div class="container" id="container">
         <h1>Data Pembayaran</h1>
-
-        <!-- Tombol untuk menambah pembayaran -->
         <button onclick="toggleTambahForm()">Tambah Pembayaran</button>
-
-        <!-- Form untuk menambah pembayaran -->
         <div id="tambahForm" style="display:none;">
             <h2>Tambah Pembayaran</h2>
             <form method="POST" action="">
@@ -99,8 +91,6 @@ $pembayaranList = getAllPembayaran();
                 <input type="submit" name="tambah" value="+">
             </form>
         </div>
-
-        <!-- Tabel untuk menampilkan data pembayaran -->
         <h2>Daftar Pembayaran</h2>
         <table>
             <thead>
@@ -136,10 +126,9 @@ $pembayaranList = getAllPembayaran();
             <?php endforeach; ?>
             </tbody>
         </table>
-<!-- Form untuk mengedit pembayaran -->
-<div id="editPaymentForm" style="display:none;">
-    <h2>Edit Pembayaran</h2>
-    <form method="POST" action="">
+        <div id="editPaymentForm" style="display:none;">
+        <h2>Edit Pembayaran</h2>
+        <form method="POST" action="">
         <input type="hidden" name="id_pembayaran" id="edit-payment-id" required>
         <div class="form-group">
             <label for="id_anggota">ID Anggota:</label>

@@ -3,42 +3,36 @@ session_start(); // Memulai session
 
 // Cek apakah pengguna sudah login
 if (isset($_SESSION["login"])) {
-    header("Location: index.php"); // Arahkan ke halaman utama jika sudah login
+    header("Location: index.php"); 
     exit;
 }
 
-include 'koneksi_database.php'; // Menginclude file yang berisi koneksi database
+include 'koneksi_database.php'; 
 
 if (isset($_POST["login"])) {
-    $username = strtolower(trim($_POST["username"])); // Ambil username dari form
-    $password = $_POST["password"]; // Ambil password dari form
+    $username = strtolower(trim($_POST["username"])); 
+    $password = $_POST["password"]; 
 
-    // Menggunakan prepared statement dengan PDO untuk mencegah SQL Injection
-    $stmt = $conn->prepare("SELECT * FROM admin_rt WHERE username = ?"); // Ganti nama tabel sesuai kebutuhan
+    $stmt = $conn->prepare("SELECT * FROM admin_rt WHERE username = ?"); 
     $stmt->execute([$username]);
 
-    // Ambil data pengguna
-    $row = $stmt->fetch(PDO::FETCH_ASSOC); // Ambil hasil sebagai array asosiatif
-
-    // Cek apakah ada hasil (fetch() mengembalikan false jika tidak ada hasil)
+    $row = $stmt->fetch(PDO::FETCH_ASSOC); 
     if ($row) {
         // Verifikasi password
-        if ($row["password"] === $password) { // Ganti ini jika menggunakan hashing
+        if ($row["password"] === $password) { 
             // Set sesi login
-            $_SESSION['login'] = true; // Tandai bahwa pengguna sudah login
-            $_SESSION['id_admin'] = $row['id_admin']; // Simpan id_admin pengguna
-            $_SESSION['nama'] = $row['nama_adm']; // Simpan nama pengguna
-            $_SESSION['username'] = $row['username']; // Simpan username
-            $_SESSION['id_rt'] = $row['id_rt']; // Simpan id_rt dari hasil query
-
-            // Redirect ke halaman utama
+            $_SESSION['login'] = true; 
+            $_SESSION['id_admin'] = $row['id_admin']; 
+            $_SESSION['nama'] = $row['nama_adm']; 
+            $_SESSION['username'] = $row['username']; 
+            $_SESSION['id_rt'] = $row['id_rt']; 
             header("Location: index.php");
             exit;
         } else {
-            $error = "Password salah!"; // Pesan error jika password salah
+            $error = "Password salah!"; 
         }
     } else {
-        $error = "Username tidak ditemukan!"; // Pesan error jika username tidak ada
+        $error = "Username tidak ditemukan!"; 
     }
 }
 ?>
@@ -55,7 +49,7 @@ if (isset($_POST["login"])) {
     <div class="container">
         <h2>Login Sistem Kas Bank Sampah</h2>
         <?php if (isset($error)) : ?>
-            <p style="color: red;"><?= htmlspecialchars($error); ?></p> <!-- Menampilkan pesan error -->
+            <p style="color: red;"><?= htmlspecialchars($error); ?></p> 
         <?php endif; ?>
         <form method="POST" action="">
             <div class="form-group">

@@ -1,24 +1,21 @@
 <?php
 session_start(); // Memulai session
-
-// Cek apakah pengguna sudah login
 if (!isset($_SESSION["login"])) {
     header("Location: login.php"); // Arahkan ke halaman login jika belum login
     exit;
 }
-
 include 'koneksi_database.php'; 
 
 // Proses menambah anggota
 if (isset($_POST['tambah'])) {
-    tambahAnggota($_POST); // Memanggil fungsi tambah
+    tambahAnggota($_POST);
 }
 
 // Proses mengedit anggota
 if (isset($_POST['edit'])) {
-    $id_anggota = $_POST['id_anggota'] ?? null; // Ambil ID anggota dari POST
+    $id_anggota = $_POST['id_anggota'] ?? null; 
     if ($id_anggota) {
-        editAnggota($_POST); // Panggil fungsi edit
+        editAnggota($_POST); 
     } else {
         throw new InvalidArgumentException("ID Anggota tidak ditemukan.");
     }
@@ -26,15 +23,15 @@ if (isset($_POST['edit'])) {
 
 // Proses menghapus anggota
 if (isset($_POST['hapus'])) {
-    $id_anggota = $_POST['id_anggota'] ?? null; // Ambil ID anggota dari POST
+    $id_anggota = $_POST['id_anggota'] ?? null; 
     if ($id_anggota) {
-        hapusAnggota($id_anggota); // Panggil fungsi hapus
+        hapusAnggota($id_anggota);
     } else {
         throw new InvalidArgumentException("ID tidak boleh kosong.");
     }
 }
 
-// Mengambil semua data anggota untuk ditampilkan
+// Mengambil data anggota
 $anggotaList = getAllAnggota();
 ?>
 <!DOCTYPE html>
@@ -60,8 +57,6 @@ $anggotaList = getAllAnggota();
     </div>
     <div class="container" id="container">
         <h1>Data Anggota</h1>
-
-        <!-- Tombol untuk menambah anggota -->
         <button onclick="toggleTambahForm()">Tambah Anggota</button>
         <div id="tambahForm" style="display:none;">
             <h2>Tambah Anggota</h2>
@@ -85,12 +80,11 @@ $anggotaList = getAllAnggota();
                 <input type="submit" name="tambah" value="+">
             </form>
         </div>
-        <h2>Daftar Anggota</h2>
-<!-- Form untuk mengedit anggota -->
-<div id="editForm" style="display:none;">
-    <h2>Edit Anggota</h2>
-    <form method="POST" action="">
-        <input type="hidden" name="id_anggota" id="edit-id" required>
+            <h2>Daftar Anggota</h2>
+        <div id="editForm" style="display:none;">
+            <h2>Edit Anggota</h2>
+            <form method="POST" action="">
+            <input type="hidden" name="id_anggota" id="edit-id" required>
         <div class="form-group">
             <label for="edit-nama">Nama:</label>
             <input type="text" name="nama" id="edit-nama" required>
@@ -147,7 +141,6 @@ $anggotaList = getAllAnggota();
             var form = document.getElementById('tambahForm');
             form.style.display = form.style.display === 'none' ? 'block' : 'none'; // Toggle display
         }
-
         function openEditForm(id_anggota, nama, alamat, email, id_rt) {
             document.getElementById('edit-id').value = id_anggota; // Isi ID anggota
             document.getElementById('edit-nama').value = nama;
