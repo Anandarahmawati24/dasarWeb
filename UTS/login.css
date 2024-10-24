@@ -1,0 +1,68 @@
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-image: url('gambar/display.png'); /* Sesuaikan dengan path gambar yang benar */
+    background-size: 1280px 720px;/* Gambar disesuaikan agar pas dengan ukuran tanpa dipotong */
+    background-position: center; /* Gambar tetap berada di tengah layar */
+    background-repeat: no-repeat;/* Menghindari pengulangan gambar */
+    display: flex;  /* Flexbox untuk tata letak konten */
+    justify-content: center;  
+    align-items: center;  /* Pusatkan elemen secara vertikal */
+}
+
+/* Atur gaya container login */
+.container {
+    background-color: rgba(255, 255, 255, 0.8); /* Latar belakang putih semi transparan */
+    padding: 20px;
+    border-radius: 10px; /* Membuat sudut container membulat */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+    width: 300px;  /* Ukuran tetap untuk form login */
+    text-align: center; /* Teks rata tengah */
+    margin: 70px auto;
+    justify-content: center;
+}
+
+/* Gaya untuk heading */
+h2 {
+    margin-bottom: 20px; /* Jarak bawah antara judul dan form */
+}
+
+/* Gaya form */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left; /* Label rata kiri */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px; /* Jarak antara label dan input */
+}
+
+.form-group input {
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Tombol submit */
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Hover efek untuk tombol */
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Gaya untuk teks link */
+p {
+    color: #45a049;
+    margin-top: 10px;
+}

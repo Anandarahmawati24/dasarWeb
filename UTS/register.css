@@ -1,0 +1,106 @@
+/* register.css */
+body {
+    font-family:'Times New Roman', Times, serif;
+    background-image: url("gambar/register.png"); /* Pastikan gambar background ini sesuai */
+    background-size: 1280px 720px;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: auto;
+
+}
+.container {
+    width: 110%;
+    max-width: 400px; /* Mengurangi ukuran maksimal kotak */
+    padding: 5px; /* Mengurangi padding */
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    justify-content: center; /* Memberikan jarak di atas dan bawah */
+}
+
+.register-box {
+    text-align: center;
+    margin: auto;
+}
+
+h1.login-title {
+    font-size: 16px; /* Mengurangi ukuran font judul */
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px; /* Ruang atas untuk judul */
+}
+
+h3.auth-title {
+    font-size: 16px; /* Mengurangi ukuran font */
+    color: #218838;
+}
+
+.form-group-register {
+    margin-bottom: 8px; /* Mengurangi margin bawah */
+    text-align: center;
+}
+
+.form-group-register label {
+    font-size: 10px; /* Mengurangi ukuran font */
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+    display:block;
+    margin-left: 10px;
+}
+
+.input-register-text {
+    width: 95%;
+    padding: 5px; 
+    font-size: 10px;
+    margin-top: 3px; 
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    transition: border 0.3s;
+    
+}
+
+.input-register-text:focus {
+    border-color: #66afe9;
+    outline: none;
+}
+
+.btn-auth {
+    width: 95%;
+    padding: 5px; 
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px; 
+    transition: background-color 0.3s;
+
+}
+
+.btn-auth:hover {
+    background-color: #218838;
+}
+
+p.login-link {
+    font-size: 80px;
+    color: #218838; 
+    margin-top: 10px; 
+    text-align: center;
+}
+
+p.login-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 10px; 
+}
+
+p.login-link a:hover {
+    text-decoration: underline;
+}
