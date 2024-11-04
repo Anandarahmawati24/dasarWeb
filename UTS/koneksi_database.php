@@ -6,7 +6,7 @@ try {
     echo "Connection failed: " . $error->getMessage();
 }
 
-// Mencegah redeclare fungsi
+// Mencegah redeclare 
 if (!function_exists('sqlsrv_query')) {
     function sqlsrv_query($query, $params = [])
     {
@@ -80,7 +80,7 @@ function registrasiAdmin($data){
         echo "<script>alert('Username sudah terdaftar!');</script>";
         return false;
     }
-]
+
     $query = "INSERT INTO admin_rt (username, password, nama_adm, email, id_rt) VALUES (?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($query);
 
@@ -161,6 +161,6 @@ function hapusPembayaran($id_pembayaran) {
     $stmt = $conn->prepare("DELETE FROM pembayaran WHERE id_pembayaran = ?");
     $stmt->execute([$id_pembayaran]);
 
-    return $stmt->rowCount(); /
+    return $stmt->rowCount(); 
 }
 ?>

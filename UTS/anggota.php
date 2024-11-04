@@ -1,7 +1,7 @@
 <?php
 session_start(); // Memulai session
 if (!isset($_SESSION["login"])) {
-    header("Location: login.php"); // Arahkan ke halaman login jika belum login
+    header("Location: login.php"); // Arahkan ke halaman login 
     exit;
 }
 include 'koneksi_database.php'; 
@@ -102,7 +102,7 @@ $anggotaList = getAllAnggota();
             <input type="text" name="id_rt" id="edit-id_rt" required>
         </div>
         <input type="submit" name="edit" value="Update Anggota">
-        <button type="button" onclick="closeEditForm()">Batal</button>
+        <button type="button" name="batal" onclick="closeEditForm()">Batal</button>
     </form>
 </div>
 <table>

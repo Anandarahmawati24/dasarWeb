@@ -81,7 +81,12 @@ button:hover {
 
 /* Tombol Logout di Sidebar */
 form button {
-    width: 100%;
+    width: 40%;
+    background-color: #c0392b; 
+}
+
+form button .batal{
+    width: 40%;
     background-color: #c0392b; 
 }
 
@@ -165,7 +170,6 @@ button, input[type="submit"] {
 button:hover, input[type="submit"]:hover {
     background-color: #218838; /* Warna tombol saat hover */
 }
-
 
 table {
     width: 100%; /* Lebar tabel penuh */
